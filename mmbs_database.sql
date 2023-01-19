@@ -52,6 +52,8 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+/*테이블명 북으로 바꿈*/  
+ALTER TABLE product RENAME TO book;
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`user`
 -- -----------------------------------------------------
