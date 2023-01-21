@@ -51,12 +51,12 @@ __GET /__
 #### 회원정보 수정
 __PATCH /__    
     
-> userPassword: 문자열
-> userPasswordCheck: 문자열
-> userPhone: 문자열
-> userAddress: 문자열
-> userAddressDetail: 문자열    
-> userKidBirth: 문자열    
+> userPassword: 문자열    
+> userPasswordCheck: 문자열    
+> userPhone: 문자열    
+> userAddress: 문자열    
+> userAddressDetail: 문자열        
+> userKidBirth: 문자열     
 
 #### 회원 탈퇴 처리
 __DELETE /__
