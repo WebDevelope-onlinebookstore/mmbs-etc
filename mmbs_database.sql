@@ -9,13 +9,13 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order` (
   -- 주문번호 uuid
   `order_number` VARCHAR(45),
   -- 회원여부
-  `order_` boolean not null,
+  `order_user_whether` boolean not null,
   -- 비회원 비밀번호
   `order_guest_password` VARCHAR(20)
   -- 회원 아이디
   `order_user_id` VARCHAR(45),
   -- 사은품
-  `gift_code` VARCHAR(2),
+  `order_gift_code` VARCHAR(2),
   -- 주문자 이름
   `order_user_name` VARCHAR(45) NOT NULL,
   -- 주문자 전화번호
@@ -60,9 +60,9 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order_detail` (
   -- 개당 금액
   `product_price` int NOT NULL,
   -- 갯수
-  `order_detail_seq` int NOT NULL,
+  `product_count` int NOT NULL,
 
-  PRIMARY KEY (`like_seq`))
+  PRIMARY KEY (`order_detail_seq`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
