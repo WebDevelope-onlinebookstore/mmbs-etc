@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order` (
   -- 회원 아이디
   `order_user_id` VARCHAR(45),
   -- 사은품
-  `gift_code` VARCHAR(2),
+  `order_gift_code` VARCHAR(2),
   -- 주문자 이름
   `order_user_name` VARCHAR(45) NOT NULL,
   -- 주문자 전화번호
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order_detail` (
   -- 개당 금액
   `product_price` int NOT NULL,
   -- 갯수
-  `order_count` int NOT NULL,
+  `product_count` int NOT NULL,
 
   PRIMARY KEY (`order_detail_seq`))
 ENGINE = InnoDB
