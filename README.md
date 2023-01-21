@@ -31,5 +31,10 @@ __/findPassword__
 > userName: 문자열     
 > userEmail: 문자열    
     
+__/signIn__
+    
+> userId: 문자열
+> userPassword: 문자열
+    
 ## User
 
