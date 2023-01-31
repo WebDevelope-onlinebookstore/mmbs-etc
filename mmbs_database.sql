@@ -90,6 +90,8 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`product` (
   `product_seq` INT AUTO_INCREMENT NOT NULL,
   -- 장르 [국내도서, 외국도서, 전집, 토이/교구, 부모님의 서재]
   `product_genre` VARCHAR(45) NOT NULL,
+  -- 세부장르
+  `product_sub_genre` VARCHAR(45) NOT NULL,
   -- 고유번호
   `product_isbn` INT,
   -- 제목
@@ -100,6 +102,8 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`product` (
   `product_publisher` VARCHAR(45),
   -- 연령 [0~3세, 4~7세, 부모]
   `product_age` VARCHAR(45) NOT NULL,
+  --연랑 세부 장르
+  `product_sub_age` VARCHAR(45) NOT NULL,
   -- 출판일
   `product_publication_date` DATE NOT NULL,
   -- 가격
@@ -132,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`user` (
   -- 아이디
   `user_id` VARCHAR(45) NOT NULL,
   -- 비밀번호
-  `user_password` VARCHAR(45) NOT NULL,
+  `user_password` VARCHAR(200) NOT NULL,
   -- 이메일
   `user_email` VARCHAR(45) NOT NULL,
   -- 주소
@@ -140,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`user` (
   -- 상세 주소
   `user_address_detail` TEXT NOT NULL,
   -- 이름
-  `user_name` VARCHAR(45) NOT NULL,
+  `user_name` VARCHAR(45) NOT NULL,햇
   -- 전화번호
   `user_phone` VARCHAR(45) NOT NULL,
   -- 등급
