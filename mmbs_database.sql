@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`product` (
   `product_publisher` VARCHAR(45),
   -- 연령 [0~3세, 4~7세, 부모]
   `product_age` VARCHAR(45) NOT NULL,
-  --연랑 세부 장르
+  -- 연랑 세부 장르
   `product_sub_age` VARCHAR(45) NOT NULL,
   -- 출판일
   `product_publication_date` DATE NOT NULL,
@@ -114,12 +114,8 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`product` (
   `product_stock` INT DEFAULT 0,
   -- 좋아요
   `product_like` INT DEFAULT 0,
-  -- 입고일
-  `product_stocking_date` DATE default NULL,
   -- 상세 설명
   `product_introduce_dtl` text NOT NULL,
-  -- 간단한 설명
-  `product_introduce` text NOT NULL,
   -- 이미지
   `product_image_url` text NOT NULL,
   -- 판매량
@@ -144,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`user` (
   -- 상세 주소
   `user_address_detail` TEXT NOT NULL,
   -- 이름
-  `user_name` VARCHAR(45) NOT NULL,햇
+  `user_name` VARCHAR(45) NOT NULL,
   -- 전화번호
   `user_phone` VARCHAR(45) NOT NULL,
   -- 등급
