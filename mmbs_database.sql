@@ -1,5 +1,4 @@
 -- -----------------------------------------------------
-
 CREATE SCHEMA IF NOT EXISTS `mmbs_database` DEFAULT CHARACTER SET utf8mb4;
 USE `mmbs_database`;
 -- -----------------------------------------------------
@@ -46,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`order_detail`
 -- -----------------------------------------------------
@@ -61,12 +59,10 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order_detail` (
   `product_price` int NOT NULL,
   -- 갯수
   `product_count` int NOT NULL,
-
   PRIMARY KEY (`order_detail_seq`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`like`
 -- -----------------------------------------------------
@@ -81,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`like` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`product`
 -- -----------------------------------------------------
@@ -124,7 +119,6 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`product` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`user`
 -- -----------------------------------------------------
@@ -145,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`user` (
   `user_phone` VARCHAR(45) NOT NULL,
   -- 등급
   `user_grade` int DEFAULT 0,
-  -- 누적 금액 
+  -- 누적 금액
   `user_total_amount` INT NOT NULL,
   -- 아이 생일
   `user_kid_birth` VARCHAR(45) DEFAULT NULL,
@@ -157,68 +151,64 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`user` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`recommend`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mmbs_database`.`recommend` (
     -- 추천인 테이블 시퀀스
-	`recommend_seq` int AUTO_INCREMENT,
+  `recommend_seq` int AUTO_INCREMENT,
     -- 추천인 (추천 당한 사람)
-    `recommended_user_id` VARCHAR(45) NOT NULL, 
+    `recommended_user_id` VARCHAR(45) NOT NULL,
     -- 추천 (추천한 사람)
-    `recommending_user_id` VARCHAR(45) NOT NULL, 
+    `recommending_user_id` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`recommend_seq`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`ask`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mmbs_database`.`ask` (
     -- 문의 번호
-	`ask_id` int NOT NULL AUTO_INCREMENT,
+  `ask_id` int NOT NULL AUTO_INCREMENT,
     -- 작성자 아이디 (참조)
-	`ask_writer` VARCHAR(45) NOT NULL,
+  `ask_writer` VARCHAR(45) NOT NULL,
     -- 문의 카테고리
-	`ask_sort` VARCHAR(45) NOT NULL,
+  `ask_sort` VARCHAR(45) NOT NULL,
     -- 문의 내용
-	`ask_content` TEXT NOT NULL,
+  `ask_content` TEXT NOT NULL,
     -- 문의 날짜
-	`ask_datetime` DATETIME NOT NULL,
+  `ask_datetime` DATETIME NOT NULL,
     -- 문의 상태 [-1: 삭제, 0: 문의 접수, 1: 답변완료 상태]
-	`ask_status` INT NOT NULL,
+  `ask_status` INT NOT NULL,
     -- 문의 답변
     `ask_reply` TEXT,
   PRIMARY KEY (`ask_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`review`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mmbs_database`.`review` (
-	-- 리뷰 시퀀스
+  -- 리뷰 시퀀스
     `review_id` int NOT NULL AUTO_INCREMENT,
     -- 리뷰 작성자 아이디
-	`review_writer_id` VARCHAR(45) NOT NULL,
+  `review_writer_id` VARCHAR(45) NOT NULL,
     -- 제품 목록
-	`review_product_id` INT NOT NULL,
+  `review_product_id` INT NOT NULL,
     -- 별점
     `review_score` INT NOT NULL,
     -- 리뷰 내용
-	`review_content` VARCHAR(45) NOT NULL,
+  `review_content` VARCHAR(45) NOT NULL,
     -- 리뷰 이미지
     `review_image` TEXT,
     -- 리뷰 날짜
-	`review_datetime` DATETIME NOT NULL,
+  `review_datetime` DATETIME NOT NULL,
   PRIMARY KEY (`review_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`cart`
 -- -----------------------------------------------------
@@ -228,20 +218,19 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`cart` (
   -- 유저 아이디
   `cart_user_id` VARCHAR(45) NOT NULL,
   -- 제품 아이디
-	`cart_product_id` INT NOT NULL,
+  `cart_product_id` INT NOT NULL,
   -- 제품 이름
-	`cart_product_name` VARCHAR(45) NOT NULL,
+  `cart_product_name` VARCHAR(45) NOT NULL,
   -- 제품 이미지
-	`cart_product_image` VARCHAR(45) NOT NULL,
+  `cart_product_image` VARCHAR(45) NOT NULL,
   -- 제품 개당 가격
-	`cart_product_price` INT,
+  `cart_product_price` INT,
   -- 제품 개 수
-	`cart_product_amount` INT,
+  `cart_product_amount` INT,
   PRIMARY KEY (`cart_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`grade`
 -- -----------------------------------------------------
@@ -258,13 +247,12 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`grade` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`coupon`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mmbs_database`.`coupon` (
     -- 쿠폰 코드
-	`coupon_code` VARCHAR(10),
+  `coupon_code` VARCHAR(10),
     -- 쿠폰 이름
     `coupon_name` varchar(200) NOT NULL,
     -- 쿠폰 종류
@@ -276,17 +264,15 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`coupon` (
     -- 쿠폰 이미지
     `coupon_image` TEXT,
   PRIMARY KEY (`coupon_code`))
-
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`coupon_use`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mmbs_database`.`coupon_use` (
     -- 쿠폰 사용 순번
-	`coupon_use_id` INT AUTO_INCREMENT,
+  `coupon_use_id` INT AUTO_INCREMENT,
     -- 쿠폰 사용 유저 아이디
     `coupon_use_user_id` varchar(45) NOT NULL,
     -- 쿠폰 사용 쿠폰 코드
@@ -296,23 +282,20 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`coupon_use` (
     -- 쿠폰 등록일
     `coupon_use_date` date,
   PRIMARY KEY (`coupon_use_id`))
-
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
-
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`gift`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mmbs_database`.`gift` (
     -- 사은품 코드
-	`gift_code` VARCHAR(2),
+  `gift_code` VARCHAR(2),
     -- 사은품 이름
     `gift_name` VARCHAR(255) NOT NULL,
     -- 사은품 이미지
     `gift_image` TEXT NOT NULL,
   PRIMARY KEY (`gift_code`))
-
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
