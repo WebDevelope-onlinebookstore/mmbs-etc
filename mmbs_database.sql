@@ -4,7 +4,7 @@ USE `mmbs_database`;
 -- -----------------------------------------------------
 -- Table `mmbs_database`.`order`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mmbs_database`.`order` (
+CREATE TABLE IF NOT EXISTS `mmbs_database`.`orders` (
   -- 주문번호 uuid
   `order_number` VARCHAR(45),
   -- 회원여부
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order` (
   -- 회원 아이디
   `order_user_id` VARCHAR(45),
   -- 사은품
-  `order_gift_code` VARCHAR(2),
+  `order_gift_code` int,
   -- 주문자 이름
   `order_user_name` VARCHAR(45) NOT NULL,
   -- 주문자 전화번호
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`order_detail` (
   -- 주문번호
   `order_number` VARCHAR(50) NOT NULL,
   -- 제품 아이디
-  `product_id` VARCHAR(50) NOT NULL,
+  `product_id` int NOT NULL,
   -- 개당 금액
   `product_price` int NOT NULL,
   -- 갯수
@@ -136,10 +136,6 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`user` (
   -- 이름
   `user_name` VARCHAR(45) NOT NULL,
   -- 전화번호
-  `user_phone` VARCHAR(45) NOT NULL,
-  -- 등급
-  `user_grade` int DEFAULT 0,
-  -- 누적 금액
   `user_total_amount` INT NOT NULL,
   -- 아이 생일
   `user_kid_birth` VARCHAR(45) DEFAULT NULL,
@@ -228,60 +224,6 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`cart` (
   -- 제품 개 수
   `cart_product_amount` INT,
   PRIMARY KEY (`cart_id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_general_ci;
--- -----------------------------------------------------
--- Table `mmbs_database`.`grade`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mmbs_database`.`grade` (
-  -- 등급 아이디 [0, 1, 2, 3, 4]
-  `grade_id` int AUTO_INCREMENT,
-  -- 등급 이름 [씨앗, 새싹, 풀잎, 나무, 열매]
-  `grade_name` varchar(45) NOT NULL,
-  -- 할인율 [0, 3, 5, 7, 10]
-  `grade_discount` INT NOT NULL,
-  -- 기준 누적 금액 [0, 10, 30, 50, 70]
-  `grade_total_price` INT NOT NULL,
-  PRIMARY KEY (`grade_id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_general_ci;
--- -----------------------------------------------------
--- Table `mmbs_database`.`coupon`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mmbs_database`.`coupon` (
-    -- 쿠폰 코드
-  `coupon_code` VARCHAR(10),
-    -- 쿠폰 이름
-    `coupon_name` varchar(200) NOT NULL,
-    -- 쿠폰 종류
-    `coupon_class` varchar(5) NOT NULL,
-    -- 혜택가
-    `coupon_benefit` INT NOT NULL,
-    -- 쿠폰 설명
-    `coupon_description` INT NOT NULL,
-    -- 쿠폰 이미지
-    `coupon_image` TEXT,
-  PRIMARY KEY (`coupon_code`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_general_ci;
--- -----------------------------------------------------
--- Table `mmbs_database`.`coupon_use`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mmbs_database`.`coupon_use` (
-    -- 쿠폰 사용 순번
-  `coupon_use_id` INT AUTO_INCREMENT,
-    -- 쿠폰 사용 유저 아이디
-    `coupon_use_user_id` varchar(45) NOT NULL,
-    -- 쿠폰 사용 쿠폰 코드
-    `coupon_use_coupon_code` varchar(5) NOT NULL,
-    -- 쿠폰 사용 가능 여부
-    `coupon_use_state` boolean default true,
-    -- 쿠폰 등록일
-    `coupon_use_date` date,
-  PRIMARY KEY (`coupon_use_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
