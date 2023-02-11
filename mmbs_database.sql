@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`user` (
   -- 이름
   `user_name` VARCHAR(45) NOT NULL,
   -- 전화번호
-  `user_total_amount` INT NOT NULL,
+  `user_phone` VARCHAR(45) NOT NULL,
   -- 아이 생일
   `user_kid_birth` VARCHAR(45) DEFAULT NULL,
   -- 가입 날짜
@@ -218,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`cart` (
   -- 제품 이름
   `cart_product_name` VARCHAR(45) NOT NULL,
   -- 제품 이미지
-  `cart_product_image` VARCHAR(45) NOT NULL,
+  `cart_product_image` VARCHAR(200) NOT NULL,
   -- 제품 개당 가격
   `cart_product_price` INT,
   -- 제품 개 수
