@@ -1,0 +1,5 @@
+[{"order_detail_seq":1, "order_number":"93d3a9e0-893d-4cd1-bcb6-cf5cf2abe06c", "product_id":7, "product_price":18000, "product_count":2},
+ {"order_detail_seq":2, "order_number":"6756c76a-49a5-4b3e-85da-7e1527a9016c", "product_id":14, "product_price":14000, "product_count":3},
+ {"order_detail_seq":3, "order_number":"766a2b2c-5bcb-4ae8-a397-da9b5abbc0a3", "product_id":35, "product_price":9000, "product_count":1},
+ {"order_detail_seq":4, "order_number":"9e546ba3-86ca-421a-8880-d7066c00e898", "product_id":52, "product_price":43200, "product_count":7},
+ {"order_detail_seq":5, "order_number":"1ca2e575-a16a-4ada-9d00-010db3c90017", "product_id":52, "product_price":43200, "product_count":7}]
