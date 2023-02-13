@@ -96,9 +96,9 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`product` (
   -- 출판사
   `product_publisher` VARCHAR(45),
   -- 연령 [0~3세, 4~7세, 부모]
-  `product_age` VARCHAR(45) NOT NULL,
+  `product_age` VARCHAR(45),
   -- 연랑 세부 장르
-  `product_sub_age` VARCHAR(45) NOT NULL,
+  `product_sub_age` VARCHAR(45),
   -- 출판일
   `product_publication_date` DATE NOT NULL,
   -- 가격
@@ -174,34 +174,12 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`ask` (
     -- 문의 내용
   `ask_content` TEXT NOT NULL,
     -- 문의 날짜
-  `ask_datetime` DATETIME NOT NULL,
-    -- 문의 상태 [-1: 삭제, 0: 문의 접수, 1: 답변완료 상태]
-  `ask_status` INT NOT NULL,
+  `ask_datetime` VARCHAR(10) NOT NULL,
+    -- 문의 상태
+  `ask_status` VARCHAR(45),
     -- 문의 답변
     `ask_reply` TEXT,
   PRIMARY KEY (`ask_id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_general_ci;
--- -----------------------------------------------------
--- Table `mmbs_database`.`review`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mmbs_database`.`review` (
-  -- 리뷰 시퀀스
-    `review_id` int NOT NULL AUTO_INCREMENT,
-    -- 리뷰 작성자 아이디
-  `review_writer_id` VARCHAR(45) NOT NULL,
-    -- 제품 목록
-  `review_product_id` INT NOT NULL,
-    -- 별점
-    `review_score` INT NOT NULL,
-    -- 리뷰 내용
-  `review_content` VARCHAR(45) NOT NULL,
-    -- 리뷰 이미지
-    `review_image` TEXT,
-    -- 리뷰 날짜
-  `review_datetime` DATETIME NOT NULL,
-  PRIMARY KEY (`review_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
@@ -216,9 +194,9 @@ CREATE TABLE IF NOT EXISTS `mmbs_database`.`cart` (
   -- 제품 아이디
   `cart_product_id` INT NOT NULL,
   -- 제품 이름
-  `cart_product_name` VARCHAR(45) NOT NULL,
+  `cart_product_name` VARCHAR(200) NOT NULL,
   -- 제품 이미지
-  `cart_product_image` VARCHAR(45) NOT NULL,
+  `cart_product_image` VARCHAR(200) NOT NULL,
   -- 제품 개당 가격
   `cart_product_price` INT,
   -- 제품 개 수
